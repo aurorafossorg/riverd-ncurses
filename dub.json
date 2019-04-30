@@ -25,7 +25,7 @@
 		{
 			"name": "dynamic",
 			"dependencies": {
-				"riverd-loader": "~>1.0.1"
+				"riverd-loader": "~>1.0.2"
 			},
 			"excludedSourceFiles": [
 				"source/riverd/ncurses/statfun.d"
@@ -34,7 +34,7 @@
 		{
 			"name": "dynamic-betterc",
 			"dependencies": {
-				"riverd-loader": "~>1.0.1"
+				"riverd-loader": "~>1.0.2"
 			},
 			"subConfigurations": {
 				"riverd-loader": "betterc"
