@@ -1,0 +1,47 @@
+{
+	"name": "riverd-ncurses",
+	"description": "Dynamic and static D bindings for ncurses library",
+	"copyright": "Copyright © 2019, Aurora Free Open Source Software",
+	"license": "LGPL-3.0",
+	"authors": [
+		"Luís Ferreira"
+	],
+	"targetType": "staticLibrary",
+	"targetPath": ".out/bin",
+	"importPaths": ["source"],
+	"sourcePaths": ["source"],
+	"configurations": [
+		{
+			"name": "static",
+			"versions": ["RiverD_NCurses_Static"],
+			"libs": [
+				"ncurses"
+			],
+			"excludedSourceFiles": [
+				"source/riverd/ncurses/dynfun.d",
+				"source/riverd/ncurses/dynload.d"
+			]
+		},
+		{
+			"name": "dynamic",
+			"dependencies": {
+				"riverd-loader": "~>1.0.1"
+			},
+			"excludedSourceFiles": [
+				"source/riverd/ncurses/statfun.d"
+			]
+		},
+		{
+			"name": "dynamic-betterc",
+			"dependencies": {
+				"riverd-loader": "~>1.0.1"
+			},
+			"subConfigurations": {
+				"riverd-loader": "betterc"
+			},
+			"excludedSourceFiles": [
+				"source/riverd/ncurses/statfun.d"
+			]
+		}
+	]
+}
