@@ -7,3 +7,7 @@ v1.0.1
 v1.0.2
 - Update inline functions and macros
 - Public import types
+
+v1.0.3
+- Add missing bindings
+- Improve function for F keys
