@@ -12,6 +12,7 @@ codestyle:
   stage: check
   image: aurorafossorg/dlang:latest
   script: dscanner -S .
+  allow_failure: true
 
 # Syntax check before compilation
 syntax_check:
@@ -46,48 +47,140 @@ editorconfig:
   script:
     - dub $BUILD_DUB_FLAGS
 
-x86_64-linux-dub-dmd-debug:
+x86_64-linux-dub-dmd-debug-static:
   stage: build
   <<: *artifacts_definition
   <<: *linux-dub_definition
   variables:
-    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86_64 --compiler=dmd --build=debug
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86_64 --compiler=dmd --build=debug --config=static
 
-x86-linux-dub-dmd-debug:
+x86-linux-dub-dmd-debug-static:
   stage: build
   <<: *artifacts_definition
   <<: *linux-dub_definition
   variables:
-    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86 --compiler=dmd --build=debug
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86 --compiler=dmd --build=debug --config=static
 
-x86_64-linux-dub-ldc-debug:
+x86_64-linux-dub-ldc-debug-static:
   <<: *artifacts_definition
   <<: *linux-dub_definition
   stage: build
   variables:
-    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86_64 --compiler=ldc --build=debug
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86_64 --compiler=ldc --build=debug --config=static
 
-x86-linux-dub-ldc-debug:
+x86-linux-dub-ldc-debug-static:
   <<: *artifacts_definition
   <<: *linux-dub_definition
   stage: build
   variables:
-    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86 --compiler=ldc --build=debug
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86 --compiler=ldc --build=debug --config=static
 
-x86_64-linux-dub-gdcd-debug:
+x86_64-linux-dub-gdcd-debug-static:
   <<: *artifacts_definition
   <<: *linux-dub_definition
   stage: build
   variables:
-    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86_64 --compiler=gdc --build=debug
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86_64 --compiler=gdc --build=debug --config=static
   allow_failure: true
 
-x86-linux-dub-gdc-debug:
+x86-linux-dub-gdc-debug-static:
   <<: *artifacts_definition
   <<: *linux-dub_definition
   stage: build
   variables:
-    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86 --compiler=gdc --build=debug
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86 --compiler=gdc --build=debug --config=static
+  allow_failure: true
+
+x86_64-linux-dub-dmd-debug-dynamic:
+  stage: build
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  variables:
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86_64 --compiler=dmd --build=debug --config=dynamic
+
+x86-linux-dub-dmd-debug-dynamic:
+  stage: build
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  variables:
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86 --compiler=dmd --build=debug --config=dynamic
+
+x86_64-linux-dub-ldc-debug-dynamic:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: build
+  variables:
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86_64 --compiler=ldc --build=debug --config=dynamic
+
+x86-linux-dub-ldc-debug-dynamic:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: build
+  variables:
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86 --compiler=ldc --build=debug --config=dynamic
+
+x86_64-linux-dub-gdcd-debug-dynamic:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: build
+  variables:
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86_64 --compiler=gdc --build=debug --config=dynamic
+  allow_failure: true
+
+x86-linux-dub-gdc-debug-dynamic:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: build
+  variables:
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86 --compiler=gdc --build=debug --config=dynamic
+  allow_failure: true
+
+x86_64-linux-dub-dmd-debug-betterc:
+  stage: build
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  variables:
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86_64 --compiler=dmd --build=debug --config=dynamic-betterc
+  allow_failure: true
+
+x86-linux-dub-dmd-debug-betterc:
+  stage: build
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  variables:
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86 --compiler=dmd --build=debug --config=dynamic-betterc
+  allow_failure: true
+
+x86_64-linux-dub-ldc-debug-betterc:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: build
+  variables:
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86_64 --compiler=ldc --build=debug --config=dynamic-betterc
+  allow_failure: true
+
+x86-linux-dub-ldc-debug-betterc:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: build
+  variables:
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86 --compiler=ldc --build=debug --config=dynamic-betterc
+  allow_failure: true
+
+x86_64-linux-dub-gdcd-debug-betterc:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: build
+  variables:
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86_64 --compiler=gdc --build=debug --config=dynamic-betterc
+  allow_failure: true
+
+x86-linux-dub-gdc-debug-betterc:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: build
+  variables:
+    BUILD_DUB_FLAGS: $CI_JOB_STAGE --arch=x86 --compiler=gdc --build=debug --config=dynamic-betterc
   allow_failure: true
 
 unittests:
@@ -105,30 +198,178 @@ code_coverage:
   after_script:
     - bash <(curl -s https://codecov.io/bash)
 
-x86_64-linux-dub-ldc-release:
+x86_64-linux-dub-ldc-release-static:
   <<: *artifacts_definition
   <<: *linux-dub_definition
   stage: production
   variables:
-    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=ldc --build=release
+    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=ldc --build=release --config=static
 
-x86-linux-dub-ldc-release:
+x86-linux-dub-ldc-release-static:
   <<: *artifacts_definition
   <<: *linux-dub_definition
   stage: production
   variables:
-    BUILD_DUB_FLAGS: build --arch=x86 --compiler=ldc --build=release
+    BUILD_DUB_FLAGS: build --arch=x86 --compiler=ldc --build=release --config=static
 
-x86_64-linux-dub-dmd-release:
+x86_64-linux-dub-dmd-release-static:
   <<: *artifacts_definition
   <<: *linux-dub_definition
   stage: production
   variables:
-    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=dmd --build=release
+    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=dmd --build=release --config=static
 
-x86-linux-dub-dmd-release:
+x86-linux-dub-dmd-release-static:
   <<: *artifacts_definition
   <<: *linux-dub_definition
   stage: production
   variables:
-    BUILD_DUB_FLAGS: build --arch=x86 --compiler=dmd --build=release
+    BUILD_DUB_FLAGS: build --arch=x86 --compiler=dmd --build=release --config=static
+
+x86_64-linux-dub-ldc-release-static:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=ldc --build=release --config=static
+
+x86-linux-dub-ldc-release-static:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86 --compiler=ldc --build=release --config=static
+
+x86_64-linux-dub-dmd-release-static:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=dmd --build=release --config=static
+
+x86-linux-dub-dmd-release-static:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86 --compiler=dmd --build=release --config=static
+
+x86_64-linux-dub-ldc-release-dynamic:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=ldc --build=release --config=dynamic
+
+x86-linux-dub-ldc-release-dynamic:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86 --compiler=ldc --build=release --config=dynamic
+
+x86_64-linux-dub-dmd-release-dynamic:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=dmd --build=release --config=dynamic
+
+x86-linux-dub-dmd-release-dynamic:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86 --compiler=dmd --build=release --config=dynamic
+
+x86_64-linux-dub-ldc-release-dynamic:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=ldc --build=release --config=dynamic
+
+x86-linux-dub-ldc-release-dynamic:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86 --compiler=ldc --build=release --config=dynamic
+
+x86_64-linux-dub-dmd-release-dynamic:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=dmd --build=release --config=dynamic
+
+x86-linux-dub-dmd-release-dynamic:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86 --compiler=dmd --build=release --config=dynamic
+
+x86_64-linux-dub-ldc-release-betterc:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=ldc --build=release --config=dynamic-betterc
+  allow_failure: true
+
+x86-linux-dub-ldc-release-betterc:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86 --compiler=ldc --build=release --config=dynamic-betterc
+  allow_failure: true
+
+x86_64-linux-dub-dmd-release-betterc:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=dmd --build=release --config=dynamic-betterc
+  allow_failure: true
+
+x86-linux-dub-dmd-release-betterc:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86 --compiler=dmd --build=release --config=dynamic-betterc
+  allow_failure: true
+
+x86_64-linux-dub-ldc-release-betterc:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=ldc --build=release --config=dynamic-betterc
+  allow_failure: true
+
+x86-linux-dub-ldc-release-betterc:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86 --compiler=ldc --build=release --config=dynamic-betterc
+  allow_failure: true
+
+x86_64-linux-dub-dmd-release-betterc:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86_64 --compiler=dmd --build=release --config=dynamic-betterc
+  allow_failure: true
+
+x86-linux-dub-dmd-release-betterc:
+  <<: *artifacts_definition
+  <<: *linux-dub_definition
+  stage: production
+  variables:
+    BUILD_DUB_FLAGS: build --arch=x86 --compiler=dmd --build=release --config=dynamic-betterc
+  allow_failure: true
