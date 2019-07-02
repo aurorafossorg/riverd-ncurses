@@ -610,3 +610,25 @@ extern (D) auto mouse_trafo(T0, T1, T2)(auto ref T0 y, auto ref T1 x, auto ref T
 {
 	return wmouse_trafo(stdscr, y, x, to_screen);
 }
+
+extern (D) void getyx(U:WINDOW*, T: int)(U win, ref T y, ref T x)
+{
+	y = getcury(win);
+	x = getcurx(win);
+}
+
+extern (D) void getparyx(U:WINDOW*, T: int)(U win, ref T y, ref T x)
+{
+	y = getpary(win);
+	x = getparx(win);
+}
+extern (D) void getmaxyx(U:WINDOW*, T: int)(U win, ref T y, ref T x)
+{
+	y = getmaxy(win);
+	x = getmaxx(win);
+}
+extern (D) void getbegyx(U:WINDOW*, T: int)(U win, ref T y, ref T x)
+{
+	y = getbegy(win);
+	x = getbegx(win);
+}

@@ -1,6 +1,6 @@
 /*
-									__
-								   / _|
+                                    __
+                                   / _|
   __ _ _   _ _ __ ___  _ __ __ _  | |_ ___  ___ ___
  / _` | | | | '__/ _ \| '__/ _` | |  _/ _ \/ __/ __|
 | (_| | |_| | | | (_) | | | (_| | | || (_) \__ \__ \
@@ -735,7 +735,17 @@ enum KEY_RIGHT = octal!int("405"); /* right-arrow key */
 enum KEY_HOME = octal!int("406"); /* home key */
 enum KEY_BACKSPACE = octal!int("407"); /* backspace key */
 enum KEY_F0 = octal!int("410"); /* Function keys.  Space for 64 */
-extern (D) auto KEY_F(T)(auto ref T n)
+extern (D) int KEY_F(N:int)(N n)
+in
+{
+	assert (n>=0, "Invalid value for KEY_F(n)");
+	assert (n<=63, "Invalid value for KEY_F(n)");
+}
+out (result)
+{
+	assert (result < KEY_DL, "Invalid value for KEY_F(n)");
+}
+body
 {
 	return KEY_F0 + n;
 } /* Value of function key n */
