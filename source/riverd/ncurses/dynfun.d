@@ -36,7 +36,6 @@ directly send an email to: contact (at) aurorafoss.org .
 module riverd.ncurses.dynfun;
 
 import riverd.ncurses.types;
-import riverd.ncurses.inline;
 
 __gshared {
 	// stfu
@@ -69,109 +68,56 @@ __gshared {
 	da_curses_version curses_version; ///
 	da_keyname_sp keyname_sp; ///
 	da_keyname keyname; ///
-	da_addch addch; ///
 	da_addchnstr addchnstr; ///
 	da_addchstr addchstr; ///
 	da_addnstr addnstr; ///
 	da_addstr addstr; ///
-	da_attroff attroff; ///
-	da_attron attron; ///
-	da_attrset attrset; ///
 	da_attr_get attr_get; ///
 	da_attr_off attr_off; ///
 	da_attr_on attr_on; ///
 	da_attr_set attr_set; ///
 	da_baudrate baudrate; ///
 	da_beep beep; ///
-	da_bkgd bkgd; ///
-	da_bkgdset bkgdset; ///
-	da_border border; ///
-	da_box box; ///
 	da_can_change_color can_change_color; ///
 	da_cbreak cbreak; ///
-	da_chgat chgat; ///
-	da_clear nclear; ///
 	da_clearok clearok; ///
-	da_clrtobot clrtobot; ///
-	da_clrtoeol clrtoeol; ///
 	da_color_content color_content; ///
-	da_color_set color_set; ///
 	da_COLOR_PAIR COLOR_PAIR; ///
 	da_copywin copywin; ///
 	da_curs_set curs_set; ///
 	da_def_prog_mode def_prog_mode; ///
 	da_def_shell_mode def_shell_mode; ///
 	da_delay_output delay_output; ///
-	da_delch delch; ///
 	da_delscreen delscreen; ///
 	da_delwin delwin; ///
-	da_deleteln deleteln; ///
 	da_doupdate doupdate; ///
 	da_echo echo; ///
-	da_echochar echochar; ///
-	da_erase erase; ///
 	da_endwin endwin; ///
 	da_erasechar erasechar; ///
 	da_filter filter; ///
 	da_flash flash; ///
 	da_flushinp flushinp; ///
 	da_getbkgd getbkgd; ///
-	da_getch getch; ///
-	da_getnstr getnstr; ///
-	da_getstr getstr; ///
 	da_halfdelay halfdelay; ///
 	da_has_colors has_colors; ///
 	da_has_ic has_ic; ///
 	da_has_il has_il; ///
-	da_hline hline; ///
 	da_idcok idcok; ///
 	da_idlok idlok; ///
 	da_immedok immedok; ///
-	da_inch inch; ///
-	da_inchnstr inchnstr; ///
-	da_inchstr inchstr; ///
 	da_init_color init_color; ///
 	da_init_pair init_pair; ///
-	da_innstr innstr; ///
-	da_insch insch; ///
-	da_insdelln insdelln; ///
-	da_insertln insertln; ///
-	da_insnstr insnstr; ///
-	da_insstr insstr; ///
-	da_instr instr; ///
 	da_intrflush intrflush; ///
 	da_isendwin isendwin; ///
-	da_is_linetouched is_linetouched; ///
 	da_is_wintouched is_wintouched; ///
 	da_keypad keypad; ///
 	da_killchar killchar; ///
 	da_leaveok leaveok; ///
 	da_meta meta; ///
-	da_move move; ///
-	da_mvaddch mvaddch; ///
-	da_mvaddchnstr mvaddchnstr; ///
-	da_mvaddchstr mvaddchstr; ///
-	da_mvaddnstr mvaddnstr; ///
-	da_mvaddstr mvaddstr; ///
-	da_mvchgat mvchgat; ///
 	da_mvcur mvcur; ///
-	da_mvdelch mvdelch; ///
 	da_mvderwin mvderwin; ///
-	da_mvgetch mvgetch; ///
-	da_mvgetnstr mvgetnstr; ///
-	da_mvgetstr mvgetstr; ///
-	da_mvhline mvhline; ///
-	da_mvinch mvinch; ///
-	da_mvinchnstr mvinchnstr; ///
-	da_mvinchstr mvinchstr; ///
-	da_mvinnstr mvinnstr; ///
-	da_mvinsch mvinsch; ///
-	da_mvinsnstr mvinsnstr; ///
-	da_mvinsstr mvinsstr; ///
-	da_mvinstr mvinstr; ///
 	da_mvprintw mvprintw; ///
 	da_mvscanw mvscanw; ///
-	da_mvvline mvvline; ///
 	da_mvwaddch mvwaddch; ///
 	da_mvwaddchnstr mvwaddchnstr; ///
 	da_mvwaddchstr mvwaddchstr; ///
@@ -184,14 +130,6 @@ __gshared {
 	da_mvwgetstr mvwgetstr; ///
 	da_mvwhline mvwhline; ///
 	da_mvwin mvwin; ///
-	da_mvwinch mvwinch; ///
-	da_mvwinchnstr mvwinchnstr; ///
-	da_mvwinchstr mvwinchstr; ///
-	da_mvwinnstr mvwinnstr; ///
-	da_mvwinsch mvwinsch; ///
-	da_mvwinsnstr mvwinsnstr; ///
-	da_mvwinsstr mvwinsstr; ///
-	da_mvwinstr mvwinstr; ///
 	da_mvwprintw mvwprintw; ///
 	da_mvwscanw mvwscanw; ///
 	da_mvwvline mvwvline; ///
@@ -216,7 +154,6 @@ __gshared {
 	da_qiflush qiflush; ///
 	da_raw raw; ///
 	da_redrawwin redrawwin; ///
-	da_refresh refresh; ///
 	da_resetty resetty; ///
 	da_reset_prog_mode reset_prog_mode; ///
 	da_reset_shell_mode reset_shell_mode; ///
@@ -225,16 +162,12 @@ __gshared {
 	da_scanw scanw; ///
 	da_scr_dump scr_dump; ///
 	da_scr_init scr_init; ///
-	da_scrl scrl; ///
-	da_scroll scroll; ///
 	da_scrollok scrollok; ///
 	da_scr_restore scr_restore; ///
 	da_scr_set scr_set; ///
 	da_setscrreg setscrreg; ///
 	da_slk_attroff slk_attroff; ///
-	da_slk_attr_off slk_attr_off; ///
 	da_slk_attron slk_attron; ///
-	da_slk_attr_on slk_attr_on; ///
 	da_slk_attrset slk_attrset; ///
 	da_slk_attr slk_attr; ///
 	da_slk_attr_set slk_attr_set; ///
@@ -246,22 +179,15 @@ __gshared {
 	da_slk_restore slk_restore; ///
 	da_slk_set slk_set; ///
 	da_slk_touch slk_touch; ///
-	da_standout standout; ///
-	da_standend standend; ///
 	da_start_color start_color; ///
 	da_syncok syncok; ///
 	da_termattrs termattrs; ///
-	da_timeout timeout; ///
-	da_touchline touchline; ///
-	da_touchwin touchwin; ///
 	da_typeahead typeahead; ///
 	da_ungetch ungetch; ///
-	da_untouchwin untouchwin; ///
 	da_use_env use_env; ///
 	da_use_tioctl use_tioctl; ///
 	da_vidattr vidattr; ///
 	da_vidputs vidputs; ///
-	da_vline vline; ///
 	da_vwprintw vwprintw; ///
 	da_vw_printw vw_printw; ///
 	da_vwscanw vwscanw; ///
@@ -271,8 +197,6 @@ __gshared {
 	da_waddchstr waddchstr; ///
 	da_waddnstr waddnstr; ///
 	da_waddstr waddstr; ///
-	da_wattron wattron; ///
-	da_wattroff wattroff; ///
 	da_wattrset wattrset; ///
 	da_wattr_get wattr_get; ///
 	da_wattr_on wattr_on; ///
@@ -288,23 +212,17 @@ __gshared {
 	da_wcolor_set wcolor_set; ///
 	da_wcursyncup wcursyncup; ///
 	da_wdelch wdelch; ///
-	da_wdeleteln wdeleteln; ///
 	da_wechochar wechochar; ///
 	da_werase werase; ///
 	da_wgetch wgetch; ///
 	da_wgetnstr wgetnstr; ///
-	da_wgetstr wgetstr; ///
 	da_whline whline; ///
 	da_winch winch; ///
 	da_winchnstr winchnstr; ///
-	da_winchstr winchstr; ///
 	da_winnstr winnstr; ///
 	da_winsch winsch; ///
 	da_winsdelln winsdelln; ///
-	da_winsertln winsertln; ///
 	da_winsnstr winsnstr; ///
-	da_winsstr winsstr; ///
-	da_winstr winstr; ///
 	da_wmove wmove; ///
 	da_wnoutrefresh wnoutrefresh; ///
 	da_wprintw wprintw; ///
@@ -313,8 +231,6 @@ __gshared {
 	da_wscanw wscanw; ///
 	da_wscrl wscrl; ///
 	da_wsetscrreg wsetscrreg; ///
-	da_wstandout wstandout; ///
-	da_wstandend wstandend; ///
 	da_wsyncdown wsyncdown; ///
 	da_wsyncup wsyncup; ///
 	da_wtimeout wtimeout; ///
@@ -324,14 +240,6 @@ __gshared {
 	da_tigetnum tigetnum; ///
 	da_putp putp; ///
 	da_getattrs getattrs; ///
-	da_getcurx getcurx; ///
-	da_getcury getcury; ///
-	da_getbegx getbegx; ///
-	da_getbegy getbegy; ///
-	da_getmaxx getmaxx; ///
-	da_getmaxy getmaxy; ///
-	da_getparx getparx; ///
-	da_getpary getpary; ///
 	da_is_term_resized is_term_resized; ///
 	da_alloc_pair alloc_pair; ///
 	da_assume_default_colors assume_default_colors; ///
@@ -467,7 +375,6 @@ __gshared {
 	da_wenclose wenclose; ///
 	da_mouseinterval mouseinterval; ///
 	da_wmouse_trafo wmouse_trafo; ///
-	da_mouse_trafo mouse_trafo; ///
 	da_has_mouse_sp has_mouse_sp; ///
 	da_getmouse_sp getmouse_sp; ///
 	da_ungetmouse_sp ungetmouse_sp; ///

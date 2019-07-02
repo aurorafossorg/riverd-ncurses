@@ -42,89 +42,57 @@ import core.stdc.stdio;
 extern(C) @nogc nothrow {
 
 	/*
-	* Function prototypes.  This is the complete X/Open Curses list of required
-	* functions.  Those marked `generated' will have sources generated from the
+	* Function prototypes. This is the complete X/Open Curses list of required
+	* functions. Those marked `generated' will have sources generated from the
 	* macro definitions later in this file, in order to satisfy XPG4.2
 	* requirements.
 	*/
 
-	int addch (const chtype);
 	int addchnstr (const(chtype)*, int);
 	int addchstr (const(chtype)*);
 	int addnstr (const(char)*, int);
 	int addstr (const(char)*);
-	int attroff (int);
-	int attron (int);
-	int attrset (int);
 	int attr_get (attr_t*, short*, void*);
 	int attr_off (attr_t, void*);
 	int attr_on (attr_t, void*);
 	int attr_set (attr_t, short, void*);
 	int baudrate ();
 	int beep ();
-	int bkgd (chtype);
-	void bkgdset (chtype);
-	int border (chtype, chtype, chtype, chtype, chtype, chtype, chtype, chtype);
-	int box (WINDOW*, chtype, chtype);
 	bool can_change_color ();
 	int cbreak ();
-	int chgat (int, attr_t, short, const(void)*);
-	int clear ();
 	int clearok (WINDOW*, bool);
-	int clrtobot ();
-	int clrtoeol ();
 	int color_content (short, short*, short*, short*);
-	int color_set (short, void*);
 	int COLOR_PAIR (int);
 	int copywin (const(WINDOW)*, WINDOW*, int, int, int, int, int, int, int);
 	int curs_set (int);
 	int def_prog_mode ();
 	int def_shell_mode ();
 	int delay_output (int);
-	int delch ();
 	void delscreen (SCREEN*);
 	int delwin (WINDOW*);
-	int deleteln ();
 	WINDOW* derwin (WINDOW*, int, int, int, int);
 	int doupdate ();
 	WINDOW* dupwin (WINDOW*);
 	int echo ();
-	int echochar (const chtype);
-	int erase ();
 	int endwin ();
 	char erasechar ();
 	void filter ();
 	int flash ();
 	int flushinp ();
 	chtype getbkgd (WINDOW*);
-	int getch ();
-	int getnstr (char*, int);
-	int getstr (char*);
 	WINDOW* getwin (FILE*);
 	int halfdelay (int);
 	bool has_colors ();
 	bool has_ic ();
 	bool has_il ();
-	int hline (chtype, int);
 	void idcok (WINDOW*, bool);
 	int idlok (WINDOW*, bool);
 	void immedok (WINDOW*, bool);
-	chtype inch ();
-	int inchnstr (chtype*, int);
-	int inchstr (chtype*);
 	WINDOW* initscr ();
 	int init_color (short, short, short, short);
 	int init_pair (short, short, short);
-	int innstr (char*, int);
-	int insch (chtype);
-	int insdelln (int);
-	int insertln ();
-	int insnstr (const(char)*, int);
-	int insstr (const(char)*);
-	int instr (char*);
 	int intrflush (WINDOW*, bool);
 	bool isendwin ();
-	bool is_linetouched (WINDOW*, int);
 	bool is_wintouched (WINDOW*);
 	const(char)* keyname (int);
 	int keypad (WINDOW*, bool);
@@ -132,54 +100,13 @@ extern(C) @nogc nothrow {
 	int leaveok (WINDOW*, bool);
 	char* longname ();
 	int meta (WINDOW*, bool);
-	int move (int, int);
-	int mvaddch (int, int, const chtype);
-	int mvaddchnstr (int, int, const(chtype)*, int);
-	int mvaddchstr (int, int, const(chtype)*);
-	int mvaddnstr (int, int, const(char)*, int);
-	int mvaddstr (int, int, const(char)*);
-	int mvchgat (int, int, int, attr_t, short, const(void)*);
 	int mvcur (int, int, int, int);
-	int mvdelch (int, int);
 	int mvderwin (WINDOW*, int, int);
-	int mvgetch (int, int);
-	int mvgetnstr (int, int, char*, int);
-	int mvgetstr (int, int, char*);
-	int mvhline (int, int, chtype, int);
-	chtype mvinch (int, int);
-	int mvinchnstr (int, int, chtype*, int);
-	int mvinchstr (int, int, chtype*);
-	int mvinnstr (int, int, char*, int);
-	int mvinsch (int, int, chtype);
-	int mvinsnstr (int, int, const(char)*, int);
-	int mvinsstr (int, int, const(char)*);
-	int mvinstr (int, int, char*);
 	int mvprintw (int, int, const(char)*, ...);
 	int mvscanw (int, int, const(char)*, ...);
-	int mvvline (int, int, chtype, int);
-	int mvwaddch (WINDOW*, int, int, const chtype);
-	int mvwaddchnstr (WINDOW*, int, int, const(chtype)*, int);
-	int mvwaddchstr (WINDOW*, int, int, const(chtype)*);
-	int mvwaddnstr (WINDOW*, int, int, const(char)*, int);
-	int mvwaddstr (WINDOW*, int, int, const(char)*);
-	int mvwchgat (WINDOW*, int, int, int, attr_t, short, const(void)*);
-	int mvwdelch (WINDOW*, int, int);
-	int mvwgetch (WINDOW*, int, int);
-	int mvwgetnstr (WINDOW*, int, int, char*, int);
-	int mvwgetstr (WINDOW*, int, int, char*);
-	int mvwhline (WINDOW*, int, int, chtype, int);
 	int mvwin (WINDOW*, int, int);
-	chtype mvwinch (WINDOW*, int, int);
-	int mvwinchnstr (WINDOW*, int, int, chtype*, int);
-	int mvwinchstr (WINDOW*, int, int, chtype*);
-	int mvwinnstr (WINDOW*, int, int, char*, int);
-	int mvwinsch (WINDOW*, int, int, chtype);
-	int mvwinsnstr (WINDOW*, int, int, const(char)*, int);
-	int mvwinsstr (WINDOW*, int, int, const(char)*);
-	int mvwinstr (WINDOW*, int, int, char*);
 	int mvwprintw (WINDOW*, int, int, const(char)*, ...);
 	int mvwscanw (WINDOW*, int, int, const(char)*, ...);
-	int mvwvline (WINDOW*, int, int, chtype, int);
 	int napms (int);
 	WINDOW* newpad (int, int);
 	SCREEN* newterm (const(char)*, FILE*, FILE*);
@@ -204,7 +131,6 @@ extern(C) @nogc nothrow {
 	void qiflush ();
 	int raw ();
 	int redrawwin (WINDOW*);
-	int refresh ();
 	int resetty ();
 	int reset_prog_mode ();
 	int reset_shell_mode ();
@@ -213,17 +139,12 @@ extern(C) @nogc nothrow {
 	int scanw (const(char)*, ...);
 	int scr_dump (const(char)*);
 	int scr_init (const(char)*);
-	int scrl (int);
-	int scroll (WINDOW*);
 	int scrollok (WINDOW*, bool);
 	int scr_restore (const(char)*);
 	int scr_set (const(char)*);
-	int setscrreg (int, int);
 	SCREEN* set_term (SCREEN*);
 	int slk_attroff (const chtype);
-	int slk_attr_off (const attr_t, void*); /* generated:WIDEC */
 	int slk_attron (const chtype);
-	int slk_attr_on (attr_t, void*); /* generated:WIDEC */
 	int slk_attrset (const chtype);
 	attr_t slk_attr ();
 	int slk_attr_set (const attr_t, short, void*);
@@ -236,25 +157,18 @@ extern(C) @nogc nothrow {
 	int slk_restore ();
 	int slk_set (int, const(char)*, int);
 	int slk_touch ();
-	int standout ();
-	int standend ();
 	int start_color ();
 	WINDOW* subpad (WINDOW*, int, int, int, int);
 	WINDOW* subwin (WINDOW*, int, int, int, int);
 	int syncok (WINDOW*, bool);
 	chtype termattrs ();
 	char* termname ();
-	void timeout (int);
-	int touchline (WINDOW*, int, int);
-	int touchwin (WINDOW*);
 	int typeahead (int);
 	int ungetch (int);
-	int untouchwin (WINDOW*);
 	void use_env (bool);
 	void use_tioctl (bool);
 	int vidattr (chtype);
 	int vidputs (chtype, NCURSES_OUTC);
-	int vline (chtype, int);
 	int vwprintw (WINDOW*, const(char)*, va_list);
 	int vw_printw (WINDOW*, const(char)*, va_list);
 	int vwscanw (WINDOW*, const(char)*, va_list);
@@ -264,8 +178,6 @@ extern(C) @nogc nothrow {
 	int waddchstr (WINDOW*, const(chtype)*);
 	int waddnstr (WINDOW*, const(char)*, int);
 	int waddstr (WINDOW*, const(char)*);
-	int wattron (WINDOW*, int);
-	int wattroff (WINDOW*, int);
 	int wattrset (WINDOW*, int);
 	int wattr_get (WINDOW*, attr_t*, short*, void*);
 	int wattr_on (WINDOW*, attr_t, void*);
@@ -281,23 +193,17 @@ extern(C) @nogc nothrow {
 	int wcolor_set (WINDOW*, short, void*);
 	void wcursyncup (WINDOW*);
 	int wdelch (WINDOW*);
-	int wdeleteln (WINDOW*);
 	int wechochar (WINDOW*, const chtype);
 	int werase (WINDOW*);
 	int wgetch (WINDOW*);
 	int wgetnstr (WINDOW*, char*, int);
-	int wgetstr (WINDOW*, char*);
 	int whline (WINDOW*, chtype, int);
 	chtype winch (WINDOW*);
 	int winchnstr (WINDOW*, chtype*, int);
-	int winchstr (WINDOW*, chtype*);
 	int winnstr (WINDOW*, char*, int);
 	int winsch (WINDOW*, chtype);
 	int winsdelln (WINDOW*, int);
-	int winsertln (WINDOW*);
 	int winsnstr (WINDOW*, const(char)*, int);
-	int winsstr (WINDOW*, const(char)*);
-	int winstr (WINDOW*, char*);
 	int wmove (WINDOW*, int, int);
 	int wnoutrefresh (WINDOW*);
 	int wprintw (WINDOW*, const(char)*, ...);
@@ -306,8 +212,6 @@ extern(C) @nogc nothrow {
 	int wscanw (WINDOW*, const(char)*, ...);
 	int wscrl (WINDOW*, int);
 	int wsetscrreg (WINDOW*, int, int);
-	int wstandout (WINDOW*);
-	int wstandend (WINDOW*);
 	void wsyncdown (WINDOW*);
 	void wsyncup (WINDOW*);
 	void wtimeout (WINDOW*, int);
@@ -333,15 +237,6 @@ extern(C) @nogc nothrow {
 	* These functions are not in X/Open, but we use them in macro definitions:
 	*/
 	int getattrs (const(WINDOW)*);
-	int getcurx (const(WINDOW)*);
-	int getcury (const(WINDOW)*);
-	int getbegx (const(WINDOW)*);
-	int getbegy (const(WINDOW)*);
-	int getmaxx (const(WINDOW)*);
-	int getmaxy (const(WINDOW)*);
-	int getparx (const(WINDOW)*);
-	int getpary (const(WINDOW)*);
-
 	/*
 	* These functions are extensions - not in X/Open Curses.
 	*/
@@ -501,7 +396,6 @@ int wgetscrreg (const(WINDOW)*, int*, int*);
 	bool wenclose (const(WINDOW)*, int, int);
 	int mouseinterval (int);
 	bool wmouse_trafo (const(WINDOW)*, int*, int*, bool);
-	bool mouse_trafo (int*, int*, bool);
 
 	bool has_mouse_sp (SCREEN*);
 	int getmouse_sp (SCREEN*, MEVENT*);

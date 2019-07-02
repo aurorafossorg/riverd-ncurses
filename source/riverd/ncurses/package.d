@@ -40,3 +40,6 @@ version(RiverD_NCurses_Static) {
 } else {
 	public import riverd.ncurses.dynload;
 }
+
+public import riverd.ncurses.types;
+public import riverd.ncurses.inline;
