@@ -11,3 +11,6 @@ v1.0.2
 v1.0.3
 - Add missing bindings
 - Improve function for F keys
+
+v1.0.4
+- Add unctrl and wunctrl missing functions
