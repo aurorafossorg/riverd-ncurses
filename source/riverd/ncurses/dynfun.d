@@ -391,6 +391,8 @@ __gshared {
 	da__tracechtype _tracechtype; ///
 	da__tracechtype2 _tracechtype2; ///
 	da_trace trace; ///
+	da_unctrl unctrl; ///
+	da_wunctrl wunctrl; ///
 
 	da_cursrc cursrc; ///
 	da_newscr newscr; ///

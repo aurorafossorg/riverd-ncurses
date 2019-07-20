@@ -1406,6 +1406,9 @@ extern(C) @nogc nothrow {
 	alias da__tracechtype2 = char* function(int, chtype);
 	alias da_trace = void function(const uint);
 
+	alias da_unctrl = char* function(chtype);
+	alias da_wunctrl = char* function(cchar_t*);
+
 	alias da_cursrc = WINDOW*;
 	alias da_newscr = WINDOW*;
 	alias da_stdscr = WINDOW*;

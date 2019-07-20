@@ -422,6 +422,9 @@ int wgetscrreg (const(WINDOW)*, int*, int*);
 
 	void trace (const uint);
 
+	char* unctrl(chtype);
+	char* wunctrl(cchar_t*);
+
 	/* NCURSES_NOMACROS */
 
 	/*

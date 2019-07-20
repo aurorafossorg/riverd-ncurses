@@ -398,6 +398,8 @@ version(D_BetterC)
 		dylib_bindSymbol(handle, cast(void**)&_tracechtype, "_tracechtype");
 		dylib_bindSymbol(handle, cast(void**)&_tracechtype2, "_tracechtype2");
 		dylib_bindSymbol(handle, cast(void**)&trace, "trace");
+		dylib_bindSymbol(handle, cast(void**)&unctrl, "unctrl");
+		dylib_bindSymbol(handle, cast(void**)&wunctrl, "wunctrl");
 
 		dylib_bindSymbol(handle, cast(void**)&cursrc, "cursrc");
 		dylib_bindSymbol(handle, cast(void**)&newscr, "newscr");
