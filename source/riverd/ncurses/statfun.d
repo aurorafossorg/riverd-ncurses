@@ -62,7 +62,6 @@ extern(C) @nogc nothrow {
 	int cbreak ();
 	int clearok (WINDOW*, bool);
 	int color_content (short, short*, short*, short*);
-	int COLOR_PAIR (int);
 	int copywin (const(WINDOW)*, WINDOW*, int, int, int, int, int, int, int);
 	int curs_set (int);
 	int def_prog_mode ();
@@ -177,7 +176,6 @@ extern(C) @nogc nothrow {
 	int waddchnstr (WINDOW*, const(chtype)*, int);
 	int waddchstr (WINDOW*, const(chtype)*);
 	int waddnstr (WINDOW*, const(char)*, int);
-	int waddstr (WINDOW*, const(char)*);
 	int wattrset (WINDOW*, int);
 	int wattr_get (WINDOW*, attr_t*, short*, void*);
 	int wattr_on (WINDOW*, attr_t, void*);

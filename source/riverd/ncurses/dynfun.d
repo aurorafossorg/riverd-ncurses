@@ -82,7 +82,6 @@ __gshared {
 	da_cbreak cbreak; ///
 	da_clearok clearok; ///
 	da_color_content color_content; ///
-	da_COLOR_PAIR COLOR_PAIR; ///
 	da_copywin copywin; ///
 	da_curs_set curs_set; ///
 	da_def_prog_mode def_prog_mode; ///
@@ -196,7 +195,6 @@ __gshared {
 	da_waddchnstr waddchnstr; ///
 	da_waddchstr waddchstr; ///
 	da_waddnstr waddnstr; ///
-	da_waddstr waddstr; ///
 	da_wattrset wattrset; ///
 	da_wattr_get wattr_get; ///
 	da_wattr_on wattr_on; ///

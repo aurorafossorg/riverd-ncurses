@@ -89,7 +89,6 @@ version(D_BetterC)
 		dylib_bindSymbol(handle, cast(void**)&cbreak, "cbreak");
 		dylib_bindSymbol(handle, cast(void**)&clearok, "clearok");
 		dylib_bindSymbol(handle, cast(void**)&color_content, "color_content");
-		dylib_bindSymbol(handle, cast(void**)&COLOR_PAIR, "COLOR_PAIR");
 		dylib_bindSymbol(handle, cast(void**)&copywin, "copywin");
 		dylib_bindSymbol(handle, cast(void**)&curs_set, "curs_set");
 		dylib_bindSymbol(handle, cast(void**)&def_prog_mode, "def_prog_mode");
@@ -203,7 +202,6 @@ version(D_BetterC)
 		dylib_bindSymbol(handle, cast(void**)&waddchnstr, "waddchnstr");
 		dylib_bindSymbol(handle, cast(void**)&waddchstr, "waddchstr");
 		dylib_bindSymbol(handle, cast(void**)&waddnstr, "waddnstr");
-		dylib_bindSymbol(handle, cast(void**)&waddstr, "waddstr");
 		dylib_bindSymbol(handle, cast(void**)&wattrset, "wattrset");
 		dylib_bindSymbol(handle, cast(void**)&wattr_get, "wattr_get");
 		dylib_bindSymbol(handle, cast(void**)&wattr_on, "wattr_on");

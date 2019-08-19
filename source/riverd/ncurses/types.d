@@ -1017,7 +1017,6 @@ extern(C) @nogc nothrow {
 	alias da_clrtoeol = int function();
 	alias da_color_content = int function(short, short*, short*, short*);
 	alias da_color_set = int function(short, void*);
-	alias da_COLOR_PAIR = int function(int);
 	alias da_copywin = int function(const(WINDOW)*, WINDOW*, int, int, int, int, int, int, int);
 	alias da_curs_set = int function(int);
 	alias da_def_prog_mode = int function();
@@ -1191,7 +1190,6 @@ extern(C) @nogc nothrow {
 	alias da_waddchnstr = int function(WINDOW*, const(chtype)*, int);
 	alias da_waddchstr = int function(WINDOW*, const(chtype)*);
 	alias da_waddnstr = int function(WINDOW*, const(char)*, int);
-	alias da_waddstr = int function(WINDOW*, const(char)*);
 	alias da_wattron = int function(WINDOW*, int);
 	alias da_wattroff = int function(WINDOW*, int);
 	alias da_wattrset = int function(WINDOW*, int);
